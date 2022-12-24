@@ -17,7 +17,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-unsigned int rfactorial(unsigned int n);
+unsigned long rfactorial(unsigned long n);
 
 int main(int argc, char *argv[]) {
 
@@ -30,17 +30,17 @@ int main(int argc, char *argv[]) {
 	    n = 5U;
     }
 
-
 	printf("%d! = ", n);
 
-	printf("%d\n", rfactorial(n));      // Show result and exit successfully.
+    // Show result and exit successfully
+	printf("%lu\n", rfactorial((unsigned long)n));
 	return 0;
 }
 
 /*
  * rfactorial    Rcursively compute the facorial of a given non-zero integer.
  */
-unsigned int rfactorial(unsigned int n) {
+unsigned long rfactorial(unsigned long n) {
 
     if (n == 1)
         return n;

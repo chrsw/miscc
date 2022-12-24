@@ -19,8 +19,8 @@
 
 int main(int argc, char *argv[]) {
 
-	unsigned int n = 0U;        // Some vars for factorial
-	unsigned int nfact = 0U;    // computation.
+	unsigned int n = 0U;         // Number to factorial
+	unsigned long nfact = 0U;    // Intermediate and result
 
     // Grab number to factorial from cmd line or use
     // default value.
@@ -35,9 +35,9 @@ int main(int argc, char *argv[]) {
     // Show the starting value of n.
 	printf("%d! = ", n);
 
-	nfact = n;                  // Compute the factorial.
-	while (--n > 1) nfact = nfact * n;
+	nfact = (unsigned long)n;                 // Compute the factorial.
+	while (--n > 1) nfact = nfact * (unsigned long)n;
 	
-	printf("%d\n", nfact);      // Show result and exit successfully.
+	printf("%lu\n", nfact);                   // Show result and exit.
 	return 0;
 }
