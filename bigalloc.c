@@ -38,6 +38,8 @@ int main(void) {
     i = rand() % 100;
     j = rand() % 100; 
 
+    printf("%d,%d\n", i, j);
+
     // Got the two random numbers, now show the surrounding 5x5 square.
     // Values out of range will be blank.
     for (m = i-2 ; m <= i+2 ; m++) {
