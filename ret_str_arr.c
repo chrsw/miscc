@@ -1,5 +1,4 @@
 /* vim:ts=4:sw=4:et:so=10:
- *      Vim modeline for consistent editor settings across files.
  *
  * ret_str_arr.c
  *      Example of how a function can return array wrapped in a structure.
@@ -37,7 +36,7 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
-/* example_fn:  return array encapsulated in a structure */
+/* ret_str_arr:  return array encapsulated in a structure */
 struct str_incl_array ret_str_arr(const char *s) {
 
     strncpy(g_str_array.ca, s, STR_ARR_SIZE);
