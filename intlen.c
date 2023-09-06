@@ -1,14 +1,18 @@
 // Find the length of an integer
 
-int i = 555;
+#include <stdlib.h>
 
-int main(void) {
+int main(int argc, char *argv[]) {
 
 	int len = 1;
-	int copy;
+    int num = 0;
 
-	copy = i;
-	while (copy /= 10)
+	if (argc > 1)
+	    num = atoi(argv[1]);
+	else
+        return -1;
+
+	while (num /= 10)
 		len++;
 
 	return len;
