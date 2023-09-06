@@ -1,4 +1,7 @@
 // Test ispal()
+// 
+// Build:
+//     $ gcc -o ispal_test ispal_test.c ispal.c reverse.c -lm
 
 #include <stdio.h>
 #include <stdbool.h>
