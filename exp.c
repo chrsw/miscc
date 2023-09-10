@@ -1,8 +1,14 @@
+/*
+ * $ gcc -o exp exp.c -lm
+ * 
+ */
+
 #include <stdio.h>
 #include <math.h>
 
-double a = 0.000;
+double a = 1.14472988;
+
 int main() {
-	printf("exp(%.3g) = %.3g\n", a,exp(a));
-	return 0;
+	printf("exp(%.8g) = %.8g\n", a, exp(a));
+	return (int)a;
 }
