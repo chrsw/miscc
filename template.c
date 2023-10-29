@@ -1,4 +1,4 @@
-/* vim:ts=4:sw=4:et:so=10:
+/* vim:ts=4:sw=4:et:so=10:ls=2:
  *      Vim modeline for consistent editor settings across files.
  *
  * exCH-#.c
@@ -11,12 +11,28 @@
  * Input:
  *      Describe the expected input.
  *
- * Other info:
- *      Returns, build, notes, etc. 
+ * Output:
+ *      What output does this program generate? stdout, stderr, files, etc.
+ *
+ * Design:
+ *      Details about the design, theory and options taken for the
+ *      implemented solution.
+ * 
+ * Implementation:
+ *      Details on how the code you're reading implements the design.      
+ *
+ * Build:
+ *      How to build this program or a build example (incl make targets).
+ *
+ * Run:
+ *      An example of how this program should be run.
+ *
+ * Notes:
+ *      Helpful information for anyone to have who is maintaining this code.
  *
  */
 
-//#include <stdio.h>
+#include <stdio.h>
 
 int main(int argc, char *argv[]) {
 
