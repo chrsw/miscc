@@ -5,8 +5,7 @@
  *      A brief description of the file.
  *
  * Description:
- *      Template for code and solutions to exercises in The C Programming
- *      Language 2nd Ed. A longer description of the program goes here.
+ *      More detailed description here.
  *
  * Input:
  *      Describe the expected input.
