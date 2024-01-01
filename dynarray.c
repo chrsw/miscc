@@ -27,65 +27,24 @@ struct dyntest {
 };
 
 
-void create_elm(struct dyntest *);
+void create_elm(struct dyntest **, int i);
 
-int main(int argc, char *argv[]) {
+int main(void) {
 
-    // Local vars for experiments
-    int *dynarray;
     int i;
-    int *tmp;
-    
     struct dyntest *d;
+    struct dyntest *str_arr[10];
+    //struct dyntest *str_arr_func[10];
 
-    struct dyntest *strarray[10];
+    struct dyntest *pstr_dyntest;
+    struct dyntest *pstr_dyntest_func = NULL;
 
-    // Supress warnings
-    (void)argc;
-    (void)argv;
-    tmp = &i;
-
-    // Allocate some memory, don't bother checking for success
-    dynarray = malloc(sizeof(int)*5);
-
-    // Structure part of test
+    // Static structure part of test
     d = malloc(sizeof(d));
     d->count = 0;
     d->list = malloc(sizeof(int)*10);
 
-
-    // Fill the allocated memory
-    for (i = 0; i < 5; i++) {
-        dynarray[i] = i;
-    }
-    // Print the allocated memory
-    for (i = 0; i < 5; i++) {
-        printf("%d ", dynarray[i]);
-    }
-    printf("\n");
-
-    // Now realloc for added size...
-    dynarray = realloc(dynarray, sizeof(int) * 10);
-
-    // Fill the added size
-    for (i = 5; i < 10; i++) {
-        dynarray[i] = i;
-    }
-
-    for (i = 0; i < 10; i++) {
-        printf("%d ", dynarray[i]);
-    }
-    printf("\n");
-    
-    //printf("tmp = %p\n", (void *)tmp);
-
-    // Now mess with dynarray...
-    tmp = dynarray;
-    dynarray = &i;
-    dynarray = tmp;
-    dynarray = realloc(dynarray, sizeof(int)*20);
-
-    // Now the structure part of the test
+    // The structure part of the test
     for (i = 0; i < 10; i++) {
         d->list[i] = i;
         d->count+=2;
@@ -93,28 +52,56 @@ int main(int argc, char *argv[]) {
     for (i = 0; i < 10; i++) {
         printf("%d ", d->list[i]);
     }
-    printf("\n%d\n", d->count);
+    printf("\ncount = %d\n", d->count);
 
     d->list = realloc(d->list, sizeof(int) * sizeof(int)*d->count);
     for (i = 0; i < d->count; i++) {
         d->list[i] = i;
     }
-
-     for (i = 0; i < d->count; i++) {
+    for (i = 0; i < d->count; i++) {
         printf("%d ", d->list[i]);
     }
-    printf("\n%d\n", d->count);
+    printf("\ncount = %d\n", d->count);
 
-    // Now using functions
+    for (i = 0; i < 10; i++) {
+        str_arr[i] = malloc(sizeof(struct dyntest));
+        str_arr[i]->count = i;
+    }
+
     for (i = 0; i < 10; i++)
-        create_elm(strarray[i]);
+        printf("str_arry[%d] count = %d\n", i, str_arr[i]->count);
+
+    pstr_dyntest = malloc(sizeof(struct dyntest));
+    pstr_dyntest->count = 1;
+    pstr_dyntest->list = malloc(sizeof(int)*10);
+    printf("pstr_dyntest->count = %d\n", pstr_dyntest->count);
+    for (i = 0; i < 10; i++) {
+        pstr_dyntest->list[i] = i;
+    }
+    for (i = 0; i < 10; i++) {
+        printf("%d ", pstr_dyntest->list[i]);
+    }
+    printf("\n\n");
+
+    
+    create_elm(&pstr_dyntest_func, 1);
+    for (i = 0; i < 10; i++) {
+        printf("%d ", pstr_dyntest_func->list[i]);
+    }
+    printf("\n\n");
 
     return 0;
 }
 
 
-void create_elm(struct dyntest *delm) {
-    delm = malloc(sizeof(delm)); 
-    delm->count = 0;
-    delm->list = malloc(sizeof(int)*10);
+void create_elm(struct dyntest **delm, int cnt) {
+    int i = 0;
+    *delm = malloc(sizeof(delm)*cnt); 
+    struct dyntest *pdyntest = *delm;
+    pdyntest->count = cnt;
+    printf("created %d element\n", cnt);
+    pdyntest->list = malloc(sizeof(int)*10);
+    for (i = 0; i < 10; i++) {
+        pdyntest->list[i] = i*2;
+    }
 }
