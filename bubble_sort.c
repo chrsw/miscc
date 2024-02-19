@@ -39,8 +39,10 @@ int main() {
     long array[32];
     int i = 0;
 
+    //printf("%zu\n", sizeof array);
     srand(time(NULL));
-    for (i = 0; i < rand() % sizeof array; i++) {
+    //for (i = 0; i < rand() % sizeof array; i++) {
+    for (i = 0; i < rand() % 32; i++) {
         array[i] = rand();
     }
     sort(array);
