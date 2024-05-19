@@ -1,4 +1,4 @@
-// bold.c  display some text in bold
+// bold.c  print some characters in bold typeface
 
 #include <stdio.h>
 
