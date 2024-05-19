@@ -15,7 +15,7 @@
 #include <math.h>
 #include <unistd.h>
 
-#define MAXN 100
+#define MAXN 1000
 
 // hold numbers and prime status
 struct sieve {
@@ -65,6 +65,7 @@ int main(int argc, char *argv[]) {
 			printf("%d ", siv[i].n);
 	}
 	printf("\n");
+	free(siv);
 
 	return EXIT_SUCCESS;
 }
