@@ -1,5 +1,4 @@
-// c_logo.c
-// Print a "C" rendered in ASCII art.
+// c_logo.c  print a "C" programming logo
 // Logo source from https://onefetch.dev/#C
 
 #include <stdio.h>
@@ -27,7 +26,7 @@ const char c_logo[] = "\
        ::::::::::::::::::::::::::\n\
           ::::::::::::::::::::\n\
               ::::::::::::\n\
-                 ::::::";
+                 ::::::\n";
 
 int main(void) {
    puts(c_logo);
