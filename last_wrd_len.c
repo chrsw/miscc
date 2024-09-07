@@ -15,11 +15,16 @@
 #include <string.h>
 #include <ctype.h>
 
+
 int last_wrd_len(char *s);
+
 
 #ifdef MAIN
 int main(void)
 {
+
+    // test strings
+    // char *s = "hello";
     //char *s = "test hello";
     char *s = "t goodbye";
 
@@ -29,6 +34,8 @@ int main(void)
 }
 #endif
 
+
+// find length of last word in a string
 int last_wrd_len(char *s)
 {
     int l, ll;
