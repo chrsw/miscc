@@ -1,4 +1,4 @@
-/* factorial.c	
+/* factorial.c  
  *      Compute the factorial (n!) of an integer.
  *      Loop version.
  *
@@ -14,8 +14,8 @@
 
 int main(int argc, char *argv[]) {
 
-	unsigned int n = 0U;         // Number to factorial
-	unsigned long nfact = 0U;    // Intermediate and result
+    unsigned int n = 0U;         // Number to factorial
+    unsigned long nfact = 0U;    // Intermediate and result
 
     // Grab number to factorial from command line or use default value.
     // This isn't safe, just for demonstration.
@@ -23,15 +23,15 @@ int main(int argc, char *argv[]) {
        n = atoi(argv[1]); 
     }
     else {
-	    n = 5U;
+        n = 5U;
     }
 
     // Show the starting value of n.
-	printf("%d! = ", n);
+    printf("%d! = ", n);
 
-	nfact = (unsigned long)n;                 // Compute the factorial.
-	while (--n > 1) nfact = nfact * (unsigned long)n;
-	
-	printf("%lu\n", nfact);                   // Show result and exit.
-	return 0;
+    nfact = (unsigned long)n;                 // Compute the factorial.
+    while (--n > 1) nfact = nfact * (unsigned long)n;
+    
+    printf("%lu\n", nfact);                   // Show result and exit.
+    return 0;
 }
