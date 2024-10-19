@@ -19,8 +19,8 @@
 
 // hold numbers and prime status
 struct sieve {
-	int n;
-	bool mark;
+	int n;          // the number
+	bool mark;      // prime == false
 };
 
 int main(int argc, char *argv[]) {
@@ -40,7 +40,7 @@ int main(int argc, char *argv[]) {
 
 	// storage for numbers and prime status
 	siv = (struct sieve *)malloc((sizeof(struct sieve) * n) + 1);
-	if (siv == NULL){
+	if (siv == NULL) {
 		printf("%s: memory error\n", argv[0]);
 		return 3;
 	}
@@ -49,15 +49,14 @@ int main(int argc, char *argv[]) {
 	for (int i = 0; i <= n; i++) {
 		siv[i].n = i;
 		siv[i].mark = false;
-	}
+    }
 
 	// Use the sieve to calculate primes
-	for (int i = 2; i <= sqrt(n); i++) {
-		for (int j = i; j <= n; j++)
-			if (((j % i) == 0) && siv[j].mark == false) {
-				siv[j].mark = true;
-			}	
-	}
+	for (int i = 2; i <= n; i++) {
+        for (int j = 2; j <= sqrt(i); j++)
+            if (((i % j) == 0) && (siv[i].mark == false))
+                siv[i].mark = true;
+    }
 
 	// unmarked numbers are primes
 	for (int i = 0; i <= n; i++) {
