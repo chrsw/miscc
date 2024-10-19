@@ -1,13 +1,37 @@
 // soe.c 	Sieve of Eratosthenes - find primes up to n
 // From https://www.youtube.com/watch?v=klcIklsWzrY
 // 
-// $ gcc -Wall -o soe soe.c -lm
-// $ ./soe 100
+// Build:
+//  $ gcc -Wall -o soe soe.c -lm
+//
+// Run:
+//  $ ./soe 100
 // 
 // TODO:
 // Simplify solution
-// Don't use prime status flag (bool mark).
+// Don't use prime status flag (bool mark)
 // Print all numbers, display primes differently from non-primes
+// Print using grid
+//
+// Example sieve with prime numbers visible and non-primes hidden:
+//
+//   ┌──┬──┬──┬──┬──┬──┬──┐
+//   │ 0│ 1│ 2│ 3│  │ 5│  │
+//   ├──┼──┼──┼──┼──┼──┼──┤
+//   │ 7│  │  │  │11│  │13│
+//   ├──┼──┼──┼──┼──┼──┼──┤
+//   │  │  │  │17│  │19│  │
+//   ├──┼──┼──┼──┼──┼──┼──┤
+//   │  │  │23│  │  │23│  │
+//   ├──┼──┼──┼──┼──┼──┼──┤
+//   │  │29│  │  │  │  │  │
+//   ├──┼──┼──┼──┼──┼──┼──┤
+//   │  │  │37│  │  │  │41│
+//   ├──┼──┼──┼──┼──┼──┼──┤
+//   │  │43│  │  │  │  │  │
+//   └──┴──┴──┴──┴──┴──┴──┘
+//
+////////////////////////////////////////////////////////////////////////////
 
 #include <stdio.h>
 #include <stdlib.h>
