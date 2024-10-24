@@ -1,8 +1,8 @@
-// soe.c 	Sieve of Eratosthenes - find primes up to n
-// From https://www.youtube.com/watch?v=klcIklsWzrY
+// soe.c  Sieve of Eratosthenes - find primes up to n
+// Inspired by: https://www.youtube.com/watch?v=klcIklsWzrY
 // 
 // Build:
-//  $ gcc -Wall -o soe soe.c -lm
+//  $ gcc -Wall -Wextra -Wpedantic -o soe soe.c -lm
 //
 // Run:
 //  $ ./soe 100
@@ -12,6 +12,7 @@
 // Don't use prime status flag (bool mark)
 // Print all numbers, display primes differently from non-primes
 // Print using grid
+// Use stderr for errors
 //
 // Example sieve with prime numbers visible and non-primes hidden:
 //
@@ -41,7 +42,7 @@
 
 #define MAXN 1000
 
-// hold numbers and prime status
+// numbers and prime status
 struct sieve {
 	int n;          // the number
 	bool mark;      // prime == false
@@ -76,11 +77,10 @@ int main(int argc, char *argv[]) {
     }
 
 	// Use the sieve to calculate primes
-	for (int i = 2; i <= n; i++) {
+	for (int i = 2; i <= n; i++)
         for (int j = 2; j <= sqrt(i); j++)
             if (((i % j) == 0) && (siv[i].mark == false))
                 siv[i].mark = true;
-    }
 
 	// unmarked numbers are primes
 	for (int i = 0; i <= n; i++) {
