@@ -16,15 +16,19 @@
 
 int main(int argc, char *argv[])
 {
-    char *path;
+    char *path = NULL;
 
     path = malloc(sizeof(argv[0]+1));
+
+    if (path == NULL) {
+        exit(1);
+        fprintf(stderr, "%s: memory error\n", argv[0]);
+    }
 
     // basename() works on copy of path
     strcpy(path, argv[0]);
 
     printf("argv[0]: %s\n", argv[0]);
-    //printf("path: %s\n", path);
     printf("basename(path): %s\n", basename(path));
 
     return EXIT_SUCCESS;
