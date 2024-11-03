@@ -17,10 +17,11 @@ int main(int argc, char *argv[]) {
 
     char **hap_ln;              // array of pointers
                                 // that point to each line read in
-    char buf[BUFSIZ];
     int lines = 0;
 
     (void)argc;
+    (void)argv;
+
     hap_ln = (char **)malloc(sizeof(char *));
 
     /*while (fgets(buf, sizeof(buf), stdin) != NULL) {
@@ -63,7 +64,7 @@ int allocin(char ***p) {
         char **hap_new = (char **)realloc(hap_ln, 
                                           (lines+1)*sizeof(char **));
         if (hap_new == NULL) {
-            fprintf(stderr, "%s: memory error\n", __FUNCTION__);
+            fprintf(stderr, "%s: memory error\n", __func__);
             return -1;
         }
         
