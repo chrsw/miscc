@@ -1,7 +1,7 @@
 // allocin:  allocate space for input.
 //           read file into memory with a pointer to each line.
 //
-// $ gcc -g -Wall -Wextra -Wpedantic -DMAIN -o allocin allocin.c
+// $ gcc -g -Wall -Wextra -Wpedantic -DALLOCIN_MAIN -o allocin allocin.c
 // $ cat allocin_test.txt | ./allocin
 // -or-
 // $ gcc -o app app.c allocin.c
@@ -15,10 +15,10 @@
 
 int allocin(char ***p);
 
-char **ghap_ln;
+char **ghap_ln;                     // modified by allocin()
 char buf[BUFSIZ];
 
-#ifdef MAIN
+#ifdef ALLOCIN_MAIN
 int main(int argc, char *argv[]) {
 
     int lines = 0;
@@ -32,11 +32,14 @@ int main(int argc, char *argv[]) {
     // print out the input
     for (int i = 0; i < lines; i++)
         printf("%s", ghap_ln[i]);
+    // print in reverse
+    for (int i = lines-1; i >= 0; i--)
+        printf("%s", ghap_ln[i]);
 
     free(ghap_ln);
     return 0;
 }
-#endif  // MAIN
+#endif  // ALLOCIN_MAIN
 
 
 /* allocin: read standard input lines into dynamically allocated arrays 
