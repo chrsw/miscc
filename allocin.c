@@ -1,17 +1,22 @@
 // allocin:  allocate space for input.
 //           read file into memory with a pointer to each line.
+//           line pointers are stored in array so lines can be access
+//           with a simple array index.
 //
 // $ gcc -g -Wall -Wextra -Wpedantic -DALLOCIN_MAIN -o allocin allocin.c
 // $ cat allocin_test.txt | ./allocin
 // -or-
 // $ gcc -o app app.c allocin.c
 //
-// TODO: make number of lines 0 if there is no input and no memory error
+// TODO:
+// Make number of lines 0 if there is no input and no memory error.
+// Optionally list files to read in on the command line.
 // 
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "allocin.h"
 
 int allocin(char ***p);
 
