@@ -1,4 +1,4 @@
-// memmath: examples of math on objects in memory
+// memmath: examples of math on memory addresses
 //
 
 #include <stdio.h>
